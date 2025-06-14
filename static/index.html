@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Security Audit</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <img src="image/SolnetexWHITE.png" alt="Solnetex Logo" class="logo" />
+        <h1>Web Security Audit</h1>
+        <p class="subtitle">Free basic security scan for your website</p>
+
+
+        <form id="scan-form">
+            <input id="url-input" type="text" placeholder="Enter URL to scan" />
+            <button type="submit">Scan</button>
+        </form>
+
+        <pre id="result"></pre>
+
+
+
+    </div>
+
+    <div id="spinner" style="display:none; text-align:center; margin:10px;">
+        🔄 Scanning...
+    </div>
+
+    <!-- Security Score Bar -->
+    <div id="scoreContainer" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: 0e0e10;
+    padding: 10px 20px;
+    z-index: 1000;
+">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <label style="font-weight: bold; font-size: 1.1rem;">Security Score</label>
+            <div id="scoreBar" style="
+        height: 30px;
+        width: 100%;
+        background-color: #ddd;
+        border-radius: 25px;
+        border: 2px solid #4b4b4b59;
+        overflow: hidden;
+        margin-top: 5px;
+    ">
+                <div id="scoreFill" style="
+          height: 100%;
+          width: 0%;
+          background-color: green;
+          text-align: center;
+          line-height: 30px;
+          color: white;
+          font-weight: bold;
+          transition: width 0.6s ease;
+      ">0%</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
