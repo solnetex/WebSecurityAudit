@@ -159,6 +159,28 @@ pre {
 
 }
 
-#summary::-webkit-scrollbar {
+#summary-container {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+#summary-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+
+/* For Firefox */
+html {
+    scrollbar-width: none;
+    /* hides scrollbar */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+/* For WebKit browsers (Chrome, Safari, Opera) */
+html::-webkit-scrollbar {
     display: none;
 }

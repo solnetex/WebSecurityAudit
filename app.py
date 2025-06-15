@@ -15,7 +15,7 @@ from AI import summarize_security_scan
 api_key = os.getenv("GOOGLE_API_KEY")
 
 
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
 CORS(app)
 
 @app.route('/scan', methods=['POST'])
@@ -338,7 +338,8 @@ def scan():
 @app.route('/', defaults={'path': 'index.html'})
 @app.route('/<path:path>')
 def serve_frontend(path):
-    return send_from_directory(app.static_folder, path)
+    return send_from_directory('.', path)
+
 
 
 if __name__ == '__main__':
