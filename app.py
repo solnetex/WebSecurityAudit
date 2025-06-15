@@ -8,6 +8,12 @@ from datetime import datetime
 import re
 import json
 from http.client import HTTPSConnection
+import os
+from AI import summarize_security_scan
+
+
+api_key = os.getenv("GOOGLE_API_KEY")
+
 
 app = Flask(__name__, static_folder='static')
 CORS(app)
@@ -302,12 +308,15 @@ def scan():
         score = max(0, 100 - total_issues * 3)
         score = min(score, 100)
 
+        ai_summary = summarize_security_scan(message)
+
         return jsonify({
             'url': url,
             'status': 'OK',
             'issues_found': total_issues,
             'message': message,
-            'score': score
+            'score': score,
+            'summary': ai_summary
         })
 
     except requests.exceptions.RequestException as e:

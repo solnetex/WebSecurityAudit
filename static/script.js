@@ -39,6 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <pre style="margin-top: 5px; font-size: 0.95rem;">${data.message}</pre>
             `;
 
+            const rawSummary = data.summary || 'No summary available';
+            document.getElementById('summary').innerHTML = parseBold(rawSummary);
+
+
+
             updateScoreBar(data.score || 0);
 
         } catch (error) {
@@ -82,3 +87,32 @@ function updateScoreBar(score) {
     fill.style.backgroundColor = color;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    // existing code ...
+
+    const toggleBtn = document.getElementById('toggle-summary-btn');
+    const summaryContainer = document.getElementById('summary-container');
+    const closeBtn = document.getElementById('close-summary-btn');
+
+    toggleBtn.addEventListener('click', () => {
+        summaryContainer.style.display = 'block';
+        toggleBtn.style.display = 'none';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        summaryContainer.style.display = 'none';
+        toggleBtn.style.display = 'block';
+    });
+
+    // ... rest of your existing code
+});
+
+
+function parseBold(text) {
+    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+}
+
+// Usage:
+const rawText = "";
+const htmlText = parseBold(rawText);
+document.getElementById('summary').innerHTML = htmlText;
