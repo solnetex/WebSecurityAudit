@@ -1,7 +1,8 @@
 # AI.py
 import requests
+import os
 
-API_KEY = "AIzaSyARl5KvLixsra654jbox6IqgELoCOWthDE"  # Replace with your actual key
+API_KEY = "GEMINI_API_KEY"  # API KEY, HAHA HACKER I BET U CANT SEE MY KEYYYY
 ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 def summarize_security_scan(scan_data):
