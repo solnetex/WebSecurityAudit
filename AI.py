@@ -2,7 +2,7 @@
 import requests
 import os
 
-API_KEY = "GEMINI_API_KEY"  # API KEY, HAHA HACKER I BET U CANT SEE MY KEYYYY
+API_KEY = os.getenv("GEMINI_API_KEY")  # API KEY, HAHA HACKER I BET U CANT SEE MY KEYYYY
 ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 def summarize_security_scan(scan_data):
